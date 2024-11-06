@@ -1,0 +1,15 @@
+service: 'service:VLLM'
+labels:
+  owner: bentoml-team
+  stage: demo
+include:
+  - '*.py'
+  - 'bentovllm_openai/*.py'
+python:
+  requirements_txt: './requirements.txt'
+  lock_packages: false
+envs:
+  - name: NUM_SCHEDULER_STEPS
+    value: 1
+docker:
+  python_version: "3.11"
