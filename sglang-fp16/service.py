@@ -12,10 +12,10 @@ SYSTEM_PROMPT = """You are a helpful, respectful and honest assistant. Always an
 
 If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information."""
 
-MODEL_ID = "nothingiisreal/MN-12B-Starcannon-v2-fp8-dynamic"
+MODEL_ID = "AuriAetherwiing/MN-12B-Starcannon-v2"
 
 @bentoml.service(
-    name="bentosglang-nm-12b-v2-fp8-service",
+    name="bentosglang-nm-12b-v2-service",
     traffic={
         "timeout": 1200,
         "concurrency": 256,  # Matches the default max_num_seqs in the VLLM engine

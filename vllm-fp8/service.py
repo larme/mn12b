@@ -6,13 +6,13 @@ import bentoml
 from annotated_types import Ge, Le
 from typing_extensions import Annotated
 
-MAX_TOKENS = 8192
+MAX_MODEL_LEN = 8192
+MAX_TOKENS = 1024
 SYSTEM_PROMPT = """You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
 
 If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information."""
 
-# MODEL_ID = "nothingiisreal/MN-12B-Starcannon-v2-fp8-dynamic"
-MODEL_ID = "AuriAetherwiing/MN-12B-Starcannon-v2"
+MODEL_ID = "nothingiisreal/MN-12B-Starcannon-v2-fp8-dynamic"
 
 
 @bentoml.service(
@@ -37,7 +37,7 @@ class VLLM:
 
         ENGINE_ARGS = AsyncEngineArgs(
             model=MODEL_ID,
-            max_model_len=MAX_TOKENS,
+            max_model_len=MAX_MODEL_LEN,
             num_scheduler_steps=num_scheduler_steps,
             enable_prefix_caching=True
         )
